@@ -1,0 +1,275 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>It Was Better Yesterday</title>
+    
+		<link rel="stylesheet" href="css/foundation.css">
+    <link rel="stylesheet" href="css/app.css">
+		<link rel="stylesheet" href="css/teamedit.css">
+		
+		<link href="https://fonts.googleapis.com/css?family=Roboto:300i,400,500,900" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		
+  </head>
+  <body>
+
+	 <ul id="sortable1" class="connectedSortable" style="border:1px solid black">
+ 	  
+		<li class="movable-surfer" id="surfer_1">
+ 			<div class="row align-center align-middle teamsurfer">
+ 				<div class="medium-1 small-2 columns"> <i class="material-icons icon-move">menu</i> </div>
+ 				<div class="medium-11 small-10 columns teamsurfername">Kelly Slater</div>
+ 			</div>
+ 		</li>
+		
+	  <li class="movable-surfer movable-wc" id="surfer_2">
+			<div class="row align-center align-middle teamsurfer">
+				<div class="medium-1 small-2 columns"> <i class="material-icons icon-move">menu</i> </div>
+				<div class="medium-11 small-10 columns teamsurfername">Yago Dora</div>
+			</div>
+		</li>
+		
+	  <li class="movable-surfer" id="surfer_3">
+			<div class="row align-center align-middle teamsurfer">
+				<div class="medium-1 small-2 columns"> <i class="material-icons icon-move">menu</i> </div>
+				<div class="medium-11 small-10 columns teamsurfername">Julian Wilson</div>
+			</div>
+		</li>
+		
+		<li class="movable-surfer" id="surfer_4">
+ 			<div class="row align-center align-middle teamsurfer">
+ 				<div class="medium-1 small-2 columns"> <i class="material-icons icon-move">menu</i> </div>
+ 				<div class="medium-11 small-10 columns teamsurfername">Mick Fanning</div>
+ 			</div>
+ 		</li>
+		
+	  <li class="movable-surfer" id="surfer_5">
+			<div class="row align-center align-middle teamsurfer">
+				<div class="medium-1 small-2 columns"> <i class="material-icons icon-move">menu</i> </div>
+				<div class="medium-11 small-10 columns teamsurfername">Adriano de Souza</div>
+			</div>
+		</li>
+		
+	  <li class="movable-surfer" id="surfer_6">
+			<div class="row align-center align-middle teamsurfer">
+				<div class="medium-1 small-2 columns"> <i class="material-icons icon-move">menu</i> </div>
+				<div class="medium-11 small-10 columns teamsurfername">Gabriel Medina</div>
+			</div>
+		</li>
+		
+	  <li class="movable-surfer" id="surfer_7">
+			<div class="row align-center align-middle teamsurfer">
+				<div class="medium-1 small-2 columns"> <i class="material-icons icon-move">menu</i> </div>
+				<div class="medium-11 small-10 columns teamsurfername">Filipe Toledo</div>
+			</div>
+		</li>
+		
+	  <li class="movable-surfer" id="surfer_8">
+			<div class="row align-center align-middle teamsurfer">
+				<div class="medium-1 small-2 columns"> <i class="material-icons icon-move">menu</i> </div>
+				<div class="medium-11 small-10 columns teamsurfername">Joel Parkinson</div>
+			</div>
+		</li>
+		
+	 </ul>
+ 
+	 <ul id="sortable2" class="connectedSortable" style="border:1px solid red">
+ 	  
+		<li class="movable-surfer" id="surfer_10">
+ 			<div class="row align-center align-middle teamsurfer isbench">
+ 				<div class="medium-1 small-2 columns"> <i class="material-icons icon-move">menu</i> </div>
+ 				<div class="medium-11 small-10 columns teamsurfername">Ian Gouveia</div>
+ 			</div>
+ 		</li>
+		
+	  <li class="movable-surfer" id="surfer_11">
+			<div class="row align-center align-middle teamsurfer isbench">
+				<div class="medium-1 small-2 columns"> <i class="material-icons icon-move">menu</i> </div>
+				<div class="medium-11 small-10 columns teamsurfername">Alex Ribeiro</div>
+			</div>
+		</li>
+		
+	  <li class="movable-surfer" id="surfer_12">
+			<div class="row align-center align-middle teamsurfer isbench">
+				<div class="medium-1 small-2 columns"> <i class="material-icons icon-move">menu</i> </div>
+				<div class="medium-11 small-10 columns teamsurfername">Jack Freestone</div>
+			</div>
+		</li>
+		
+	 </ul>
+
+
+ 	<div class="tracker"> </div>
+	<div class="serialized"> </div>
+	<div class="messages"> </div>
+	
+
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/what-input.js"></script>
+    <script src="js/vendor/foundation.js"></script>
+    <script src="js/app.js"></script>
+ 
+	  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"> </script>
+	 
+	 
+	 <script>
+			$( function() {
+				$( "#sortable1, #sortable2" ).sortable({
+					connectWith: ".connectedSortable",
+					axis:"y",
+					handle: ".icon-move",
+					cursor: "pointer",
+					placeholder: "ui-state-highlight",
+					opacity: 0.9,
+					
+					start: function(event,ui){
+						ui.item.startPos = ui.item.index();
+						ui.item.startPar = ui.item.parent().attr("id");
+						if(ui.item.hasClass("movable-wc")){ui.item.isWc=1;}else{ui.item.isWc=0};//if moving a wc
+						if($("#sortable1 > li.movable-surfer:last").hasClass("movable-wc")){ui.item.wcLast=1;}else{ui.item.wcLast=0;}//if a wc is last in active
+					},
+					
+					change: function(event,ui){
+
+						if($(ui.item).parent().attr("id") == "sortable1" && ui.placeholder.parent().attr("id") == "sortable2"){
+							//moving an item from active to bench
+							if(ui.placeholder.index()!=0 && ui.item.isWc!=1){
+								//change colors if its being dropped below 0 (0 is technically still active)
+								$(ui.item).children(".teamsurfer").addClass("isbench");
+								$("#sortable2 > li.movable-surfer:eq(0)").children(".teamsurfer").removeClass("isbench");
+								ui.item.classChange = 1;
+							}else if(ui.item.isWc==1){
+								//if moving a wildcard to bench change to forbidden move
+								$(ui.item).children(".teamsurfer").addClass("forbiddenmove");
+								ui.item.wcChange = 1;
+							}
+							
+						}
+
+						else if($(ui.item).parent().attr("id") == "sortable2" && ui.placeholder.parent().attr("id") == "sortable1"){
+							//moving an item from bench to active
+							if(ui.placeholder.index()!=8 && !$("#sortable1 > li.movable-surfer:last").hasClass("movable-wc")){
+								//moving to position below 8 and a wc isnt last on active
+								$(ui.item).children(".teamsurfer").removeClass("isbench");
+								$("#sortable1 > li.movable-surfer:last").children(".teamsurfer").addClass("isbench");
+								ui.item.classChange = 1;
+							}else if(ui.placeholder.index()<8 && $("#sortable1 > li.movable-surfer:last").hasClass("movable-wc")){
+								//moving to a position below 8 and wc is last on active
+								$("#sortable1 > li.movable-surfer:last").children(".teamsurfer").addClass("forbiddenmove");
+								ui.item.wcChange = 2;
+							}else if(ui.placeholder.index()==8 && ui.item.wcChange==2){
+								$("#sortable1 > li.movable-surfer:eq(7)").children(".teamsurfer").removeClass("forbiddenmove");
+							}
+						}
+					
+						else if($(ui.item).parent().attr("id") == "sortable1" && ui.placeholder.parent().attr("id") == "sortable1"){
+							//moving an item from active to active
+							if(ui.item.classChange==1){
+								//revert classes
+								$(ui.item).children(".teamsurfer").removeClass("isbench");
+								$("#sortable2 > li.movable-surfer:eq(0)").children(".teamsurfer").addClass("isbench");
+								ui.item.classChange = 0;
+							}else if(ui.item.wcChange==1){
+								//revert class for wc
+								$(ui.item).children(".teamsurfer").removeClass("forbiddenmove");
+								ui.item.wcChange = 0;
+							}
+						}
+					
+						else if($(ui.item).parent().attr("id") == "sortable2" && ui.placeholder.parent().attr("id") == "sortable2"){
+							//moving an item from bench to bench
+							if(ui.item.classChange==1){
+								//revert classes
+								$(ui.item).children(".teamsurfer").addClass("isbench");
+								$("#sortable1 > li.movable-surfer:last").children(".teamsurfer").removeClass("isbench");
+								ui.item.classChange = 0;
+							}else if(ui.item.wcChange==1){
+								//revert class for wc
+								$("#sortable1 > li.movable-surfer:last").children(".teamsurfer").removeClass("forbiddenmove");
+								ui.item.wcChange = 0;
+							}
+						}
+						
+						//loophole moves (for class changed on bottom of active and on top of bench)
+						
+						 if(ui.item.classChange==1 
+							 			&& ui.item.startPar=="sortable2"
+										&& ui.placeholder.parent().attr("id")=="sortable1" 
+										&& ui.placeholder.index()==8){
+											//class revert when adding bench surfer to bottom of active (so, back to bench)
+											$(ui.item).children(".teamsurfer").addClass("isbench");
+											$("#sortable1 > li.movable-surfer:eq(7)").children(".teamsurfer").removeClass("isbench");
+											ui.item.classChange = 0;
+						}
+						else if(ui.item.classChange==1 
+										&& ui.item.startPar=="sortable1"
+										&& ui.placeholder.parent().attr("id")=="sortable2" 
+										&& ui.placeholder.index()==0){
+											//class rever when moving from active to top of bench (so still active)
+											$(ui.item).children(".teamsurfer").removeClass("isbench");
+											$("#sortable2 > li.movable-surfer:eq(0)").children(".teamsurfer").addClass("isbench");
+											ui.item.classChange = 0;	
+						}
+						
+
+					},
+					
+	 			  beforeStop: function(evt,ui){
+				 
+					 if(ui.item.isWc==1 && ui.placeholder.parent().attr("id") == "sortable2"){
+					 	//moving a wc to bench
+						 if(ui.item.wcChange == 1){
+						 	$(ui.item).children(".teamsurfer").removeClass("forbiddenmove")
+						 } 
+						
+						$(this).sortable('cancel');
+						
+					 }
+					 
+					 else if(ui.item.startPar=="sortable2" && ui.placeholder.parent().attr("id") == "sortable1" && ui.item.wcLast==1){
+					 	//moving bench to active when wc is last active
+						 if(ui.item.wcChange == 2){
+							$("#sortable1 > li.movable-wc:last").children(".teamsurfer").removeClass("forbiddenmove");
+						 } 
+						$(this).sortable('cancel');
+					 }
+				 
+	 			  },
+					
+					stop: function( event, ui ) {
+						ui.item.endPos = ui.item.index();
+						ui.item.endPar = ui.item.parent().attr("id");
+						
+						
+						if(ui.item.startPar=="sortable1" && ui.item.endPar=="sortable2" && ui.item.endPos==0){
+							//from active to first bench spot - so still bench
+							$('#sortable1').append(ui.item);//move item to top of bench
+						}
+						
+						else if(ui.item.startPar=="sortable2" && ui.item.endPar=="sortable1" && ui.item.endPos==8){
+							//from bench to last active spot - so still bench
+							$('#sortable2').prepend(ui.item);//move item to bottom of active
+						}
+						
+						else if(ui.item.startPar=="sortable1" && ui.item.endPar=="sortable2" && ui.item.endPos!=0){
+							//valid move from active to bench
+							$('#sortable1').append($("#sortable2 > li.movable-surfer:eq(0)"));
+							
+						}
+						
+						else if(ui.item.startPar=="sortable2" && ui.item.endPar=="sortable1" && ui.item.endPos!=8){
+							//valid move from bench to active
+							$('#sortable2').prepend($("#sortable1 > li.movable-surfer:last"));
+						}
+					
+					}
+					
+				}).disableSelection();
+			} );
+	 </script>
+	
+</body>
+</html>

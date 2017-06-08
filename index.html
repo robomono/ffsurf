@@ -1,0 +1,114 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>It Was Better Yesterday</title>
+    
+		<link rel="stylesheet" href="css/foundation.css">
+    <link rel="stylesheet" href="css/app.css">
+		<link rel="stylesheet" href="css/event-styles.css">
+		
+		<link href="https://fonts.googleapis.com/css?family=Roboto:300i,400,500,900" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		
+  </head>
+  <body>
+		
+    <div class="row expanded align-center align-middle eventnav">
+			<div class="small-12 columns selected-event"><h4>Quiksilver Pro Gold Coast</h4></div>
+    </div>
+		
+		<div class="row expanded align-center align-middle eventnav-expanded">
+			<div class="small-12 columns eventselect selected-event"><h4>Quiksilver Pro Gold Coast</h4></div>
+			<div class="small-12 columns eventselect"><h4>Drug Aware Margaret River Pro</h4></div>
+			<div class="small-12 columns eventselect"><h4>Rip Curl Bells Beach Pro</h4></div>
+			<div class="small-12 columns eventselect"><h4>Oi Rio Pro</h4></div>
+			<div class="small-12 columns eventselect"><h4>Outerknown Fiji Pro</h4></div>
+		</div>
+		
+    <div class="row expanded align-center align-middle roundnav">
+		 <div class="medium-2 small-2 columns"><a href="#" id="roundback">	<i class="material-icons">chevron_left</i> </a></div>
+		 <div class="medium-2 small-8 columns roundselect" id="menu-round1">Round 1</div>
+		 <div class="medium-2 small-8 columns roundselect" id="menu-round2">Round 2</div>
+		 <div class="medium-2 small-8 columns roundselect" id="menu-round3">Round 3</div>
+		 <div class="medium-2 small-8 columns roundselect" id="menu-round4">Round 4</div>
+		 <div class="medium-2 small-8 columns roundselect" id="menu-round5">Round 5</div>
+		 <div class="medium-2 small-8 columns roundselect selected-round" id="menu-round6">Quarterfinals</div>
+		 <div class="medium-2 small-8 columns roundselect" id="menu-round7">Semifinals</div>
+		 <div class="medium-2 small-8 columns roundselect" id="menu-round8">Final</div>
+		 <div class="small-2 columns"><a href="#" id="roundnext"> <i class="material-icons">chevron_right</i> </a></div>
+    </div>
+		
+    <div class="row expanded align-center align-middle navmenu">
+		 <div class="large-4 small-4 columns selected">Live</div>
+		 <div class="large-4 small-4 columns">Team</div> 
+		 <div class="large-4 small-4 columns">Standings</div>
+    </div>
+		
+    <div class="row expanded align-center align-middle navmenu">
+		 <div class="large-4 small-4 columns selected">Team</div> 
+		 <div class="large-4 small-4 columns">Waivers</div> 
+		 <div class="large-4 small-4 columns">Leaderboard</div>
+    </div>
+		
+		
+
+
+
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/what-input.js"></script>
+    <script src="js/vendor/foundation.js"></script>
+    <script src="js/app.js"></script>
+		
+		<script>
+			
+			$(".eventnav").click(function(){
+				$(".eventnav-expanded").slideDown("fast");
+				$(".eventnav").slideUp("fast");
+			});
+			
+			$(".eventselect").click(function(){
+				$(".eventnav-expanded").slideUp("fast");
+				$(".eventnav").slideDown("fast");
+				
+				$(this).parent().children(".selected-event").removeClass("selected-event");
+				$(this).addClass("selected-event");
+				
+				var thisevent = $(this).children("h4").text();
+				
+				$(".eventnav").children(".selected-event").children("h4").text(thisevent);
+				
+			});
+			
+			
+			
+			$("#roundback").click(function(){
+				var round = parseInt($("#roundback").parent().siblings(".selected-round").attr("id").slice(10)) -1;
+				var prevround = "#menu-round" + round;
+				
+				if(round!=0){
+					
+					$(".selected-round").removeClass("selected-round");
+					$(prevround).addClass("selected-round");
+					
+				}
+
+			});
+			
+			$("#roundnext").click(function(){
+				var round = parseInt($("#roundnext").parent().siblings(".selected-round").attr("id").slice(10))+1;
+				var nextround =  "#menu-round" + round;
+				
+				if(round!=9){
+					$(".selected-round").removeClass("selected-round");
+					$(nextround).addClass("selected-round");
+				}
+
+			});
+			
+		</script>
+		
+  </body>
+</html>

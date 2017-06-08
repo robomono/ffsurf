@@ -1,0 +1,39 @@
+#sortable { list-style-type: none;margin:0px;}
+
+#sortable li {}
+	
+#sortable li:hover {cursor:pointer;}
+
+html>body #sortable li { }
+
+.ui-state-highlight { height: 58px; }
+
+
+.icon-move{
+	margin-top:9px;
+}
+
+.teamsurfer{
+	background-color:#E1E6FA;
+	color:#183152;
+}
+
+.isbench{
+	background-color:#194759;
+	color:#BFDCF5;
+}
+
+.isinactive{
+	background-color:#eee;
+	color:#bbb;
+}
+
+.teamsurfername{
+	padding:15px;
+	font-weight:900;
+}
+
+.forbiddenmove{
+	background-color:red;
+	color:white;
+}
