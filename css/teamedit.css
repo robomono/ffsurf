@@ -1,8 +1,8 @@
-#sortable { list-style-type: none;margin:0px;}
-
-#sortable li {}
+#sortable1 { list-style-type: none;margin:0px;}
+#sortable2 { list-style-type: none;margin:0px;}
 	
-#sortable li:hover {cursor:pointer;}
+#sortable1 li:hover {cursor:pointer;}
+#sortable2 li:hover {cursor:pointer;}
 
 html>body #sortable li { }
 
@@ -11,6 +11,10 @@ html>body #sortable li { }
 
 .icon-move{
 	margin-top:9px;
+}
+
+.icon-move:hover{
+	cursor:pointer;
 }
 
 .teamsurfer{
@@ -36,4 +40,10 @@ html>body #sortable li { }
 .forbiddenmove{
 	background-color:red;
 	color:white;
+}
+
+.lineupbuttons{margin-top: 20px;}
+
+.lineupbuttons .button{
+	width:100%;
 }
