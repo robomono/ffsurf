@@ -89,7 +89,7 @@
 				
 				<div class="large-1 medium-1 columns wslsurferpoints">300,000</div>
 				
-				<div class="large-1 medium-1 columns wslsurferexpand"> <i class="material-icons">chevron_left</i> </div>
+				<div class="large-1 medium-1 columns wslsurferexpand closedchevron"> <i class="material-icons">chevron_left</i> </div>
 				
 				<div class="small-12 columns expandedsurfer">
 					<div class="row align-center align-middle">
@@ -250,6 +250,32 @@
     <script src="js/vendor/foundation.js"></script>
     <script src="js/app.js"></script>
 		
+		<script>
+			
+			$(".wslsurferexpand").click(function(){
+
+				if( $(this).hasClass("closedchevron") ){
+					
+					//Details are closed, open them
+					$(this).next('.expandedsurfer').slideDown("fast");
+					$(this).removeClass("closedchevron");
+					$(this).addClass("openchevron");
+					$(this).children(".material-icons").html("expand_more");
+					
+				}else if( $(this).hasClass("openchevron") ){
+					
+					//Details are open, close them
+					$(this).next('.expandedsurfer').slideUp("fast");
+					$(this).removeClass("openchevron");
+					$(this).addClass("closedchevron");
+					$(this).children(".material-icons").html("chevron_left");
+					
+				}
+
+					
+			});
+			
+		</script>
 		
   </body>
 </html>

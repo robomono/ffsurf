@@ -46,6 +46,16 @@
 	text-align:right;
 }
 
+.wslsurferexpand :hover{
+	cursor:pointer;
+}
+
+.expandedsurfer{
+	/*
+	display:none;
+	*/
+}
+
 /*BELOW EXACTLY COPIED FROM TEAM.CSS*/
 
 .performanceresult{
@@ -77,16 +87,16 @@
 	text-align:center;
 	font-size:7pt;
 	font-weight:900;
-	padding:9px 0px 9px 0px;
-	border-top:3px solid #eee;border-bottom:3px solid #eee;
+	padding:7px 0px 7px 0px;
+	border-top:5px solid #eee;border-bottom:5px solid #eee;
 }
 
 .performanceinjured{
 	width:100%;
-	text-align:center;
+	text-align:left;
 	font-size:7pt;
 	font-weight:900;
-	padding:13px 0px 13px 0px;
+	padding:13px 0px 13px 10px;
 }
 
 .event25{background-color:#2D112C;color:#943891;}
