@@ -57,6 +57,37 @@
 	text-align:center;
 }
 
+.performanceeventname{
+	padding:8px 15px 8px 0px;
+	text-align:right;
+	font-size:10pt;
+	font-weight:400;
+}
+
+.performanceeventnumber{
+	padding:8px 0px 8px 0px;
+	text-align:center;
+	border-bottom:1px solid #eee;
+	font-size:10pt;
+	font-weight:400;
+}
+
+.performanceround{
+	width:12.5%;
+	text-align:center;
+	font-size:7pt;
+	font-weight:900;
+	padding:12px 0px 12px 0px;
+}
+
+.performanceinjured{
+	width:100%;
+	text-align:center;
+	font-size:7pt;
+	font-weight:900;
+	padding:13px 0px 13px 0px;
+}
+
 .event25{background-color:#2D112C;color:#943891;}
 .event13{background-color:#530031;color:#A1005F;}
 .event9{background-color:#820233;color:#E8045B;}
@@ -66,4 +97,12 @@
 .event1{background-color:#EFCD4C;color:#423915;}
 .eventinjured{background-color:#0F060F;color:#aaa;}
 .eventunsurfed{background-color:#eee;color:#999;}
+
+.performancewon{background-color:#ABD25E;color:#667D38;}
+.performancerelegated{background-color:#F8C830;color:#876D1A;}
+.performancelost{background-color:#F1594A;color:#8F352C;}
+.performanceout{background-color:#eee;color:#ccc;}
+.performanceinjured{background-color:#eee;color:#999;}
+
+
 
