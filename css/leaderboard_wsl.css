@@ -1,11 +1,11 @@
 .wslsurfer{
 	border:1px solid #ddd;
+	background-color:#eee;
 }
 
 .wslsurferrank{
 	width:50%;
 	float:left;
-	border:1px solid #ddd;
 	text-align:center;
 	font-size:14pt;
 	font-weight:100;
@@ -15,7 +15,6 @@
 .wslsurferteam{
 	width:50%;
 	float:left;
-	border:1px solid #ddd;
 	text-align:center;
 	margin-top:5px;
 }
@@ -23,22 +22,19 @@
 .wslsurfername{
 	padding:15px;
 	font-weight:900;
-	border:1px solid #ddd;
 }
 
 .wslsurferresults{
-	border:1px solid #ddd;
+	
 }
 
 .wslsurferpoints{
 	font-weight:900;
 	padding:0px;
 	text-align:center;
-	border:1px solid #ddd;
 }
 
 .wslsurferexpand{
-	border:1px solid #ddd;
 	padding-left:10px;
 	padding-right:10px;
 	padding-top:14px;
